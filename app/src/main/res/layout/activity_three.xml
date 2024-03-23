@@ -33,15 +33,10 @@
         android:layout_height="0dp"
         android:layout_weight="6">
 
-        <com.androidplot.xy.XYPlot
-            style="@style/APDefacto.Light"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/plot"
-            ap:title="Simple XY Plot"
-            ap:rangeTitle="Name"
-            ap:domainTitle="Time"
-            />
+        <com.anychart.AnyChartView
+            android:id="@+id/any_chart_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

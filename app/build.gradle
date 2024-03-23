@@ -44,6 +44,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
 }
 
 dependencies {
@@ -68,4 +69,5 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     implementation 'com.androidplot:androidplot-core:1.5.7'
     implementation "com.halfhp.fig:figlib:1.0.11"
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.5'
 }

@@ -1,70 +1,106 @@
 package com.example.testsuite;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.androidplot.xy.CatmullRomInterpolator;
-import com.androidplot.xy.LineAndPointFormatter;
-import com.androidplot.xy.PanZoom;
-import com.androidplot.xy.SimpleXYSeries;
-import com.androidplot.xy.XYGraphWidget;
-import com.androidplot.xy.XYPlot;
-import com.androidplot.xy.XYSeries;
-
-import java.text.FieldPosition;
-import java.text.Format;
-import java.text.ParsePosition;
-import java.util.Arrays;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import android.util.JsonReader;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.charts.Cartesian;
+import com.anychart.core.cartesian.series.RangeColumn;
+import com.anychart.data.Mapping;
+import com.anychart.data.Set;
 public class ThirdActivity extends AppCompatActivity {
     Button btn0, btn1, btn2, btn3;
-    XYPlot plot;
+    // for the gant chart
+    private class CustomDataEntry extends DataEntry {
+        public CustomDataEntry(String x, Number low, Number high) {
+            setValue("x", x);
+            setValue("low", low);
+            setValue("high", high);
+        }
+    }
+    private Number convertTimeToMinutes(String time) {
+        String[] parts = time.split(":");
+        int hours = Integer.parseInt(parts[0]);
+        int minutes = Integer.parseInt(parts[1]);
+        return hours * 60 + minutes;
+    }
+
+    private List<Schedule> readSchedulesFromJson() {
+        List<Schedule> schedules = new ArrayList<>();
+
+        try {
+            InputStream is = getAssets().open("schedules.json");
+            JsonReader reader = new JsonReader(new InputStreamReader(is, "UTF-8"));
+
+            reader.beginArray();
+            while (reader.hasNext()) {
+                reader.beginObject();
+
+                String name = "";
+                String start = "";
+                String end = "";
+
+                while (reader.hasNext()) {
+                    String key = reader.nextName();
+
+                    if (key.equals("name")) {
+                        name = reader.nextString();
+                    } else if (key.equals("start")) {
+                        start = reader.nextString();
+                    } else if (key.equals("end")) {
+                        end = reader.nextString();
+                    } else {
+                        reader.skipValue();
+                    }
+                }
+
+                schedules.add(new Schedule(name, start, end));
+
+                reader.endObject();
+            }
+            reader.endArray();
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return schedules;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three);
-        plot = findViewById(R.id.plot);
+        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
 
-        //Create a arrays of y-value to plot:
-        final Number[] domainLabels = {1,2,3,6,7,8,9,10,13,14};
-        Number[] series1Numbers = {1,4,2,8,88,16,8,32,16,64};
-        Number[] series2Numbers = {2,6,3,12,8,0,17,64,20,40};
+        Cartesian cartesian = AnyChart.cartesian();
 
-        // Turn the above arrays into XYSeries
-        XYSeries series1 = new SimpleXYSeries(Arrays.asList(series1Numbers),
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,"Series 1");
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(series2Numbers),
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY,"Series 2");
+        List<DataEntry> data = new ArrayList<>();
+        for (Schedule schedule : readSchedulesFromJson()) {
+            String name = schedule.getName();
+            Number start = convertTimeToMinutes(schedule.getStart());
+            Number end = convertTimeToMinutes(schedule.getEnd());
+            data.add(new CustomDataEntry(name, start, end));
+        }
 
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED,Color.GREEN,null,null);
-        LineAndPointFormatter series2Format = new LineAndPointFormatter(Color.YELLOW,Color.BLUE,null,null);
+        Set set = Set.instantiate();
+        set.data(data);
+        Mapping seriesData = set.mapAs("{ x: 'x', high: 'high', low: 'low' }");
 
-        series1Format.setInterpolationParams(new CatmullRomInterpolator.Params(10,
-                CatmullRomInterpolator.Type.Centripetal));
-        series2Format.setInterpolationParams(new CatmullRomInterpolator.Params(10,
-                CatmullRomInterpolator.Type.Centripetal));
+        RangeColumn column = cartesian.rangeColumn(seriesData);
 
-        plot.addSeries(series1,series1Format);
-        plot.addSeries(series2,series2Format);
+        anyChartView.setChart(cartesian);
 
-        plot.getGraph().getLineLabelStyle(XYGraphWidget.Edge.BOTTOM).setFormat(new Format() {
-            @Override
-            public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
-                int i = Math.round( ((Number)obj).floatValue() );
-                return toAppendTo.append(domainLabels[i]);
-            }
-
-            @Override
-            public Object parseObject(String source, ParsePosition pos) {
-                return null;
-            }
-        });
-
-        PanZoom.attach(plot);
-
+        // Button and click listeners
         btn0 = (Button) findViewById(R.id.btn0);
         btn0.setOnClickListener(e -> {
             Intent intent = new Intent(this, FirstActivity.class);

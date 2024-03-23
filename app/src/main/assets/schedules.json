@@ -1,0 +1,7 @@
+[
+  {"name": "Name A", "start": "7:00", "end": "9:00"},
+  {"name": "Name A", "start": "13:00", "end": "15:00"},
+  {"name": "Name B", "start": "8:00", "end": "10:00"},
+  {"name": "Name B", "start": "14:00", "end": "16:00"},
+  {"name": "Name C", "start": "14:00", "end": "16:00"}
+]
