@@ -9,8 +9,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.testsuite"
-        minSdk 21
-        targetSdk 21
+        minSdk 29
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
@@ -66,7 +66,8 @@ dependencies {
     debugImplementation libs.ui.tooling
     debugImplementation libs.ui.test.manifest
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
-    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    //implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    implementation ("io.github.muxiaolin:org.eclipse.paho.android.service:1.1.4")
     implementation 'com.androidplot:androidplot-core:1.5.7'
     implementation "com.halfhp.fig:figlib:1.0.11"
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.5'
