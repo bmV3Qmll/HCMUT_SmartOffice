@@ -71,4 +71,5 @@ dependencies {
     implementation 'com.androidplot:androidplot-core:1.5.7'
     implementation "com.halfhp.fig:figlib:1.0.11"
     implementation 'com.github.AnyChart:AnyChart-Android:1.1.5'
+    implementation 'com.android.volley:volley:1.2.1'
 }
