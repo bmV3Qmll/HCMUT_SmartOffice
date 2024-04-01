@@ -41,6 +41,11 @@
             android:label="FourthActivity"
             android:theme="@style/Theme.TestSuite" />
         <activity
+            android:name=".FifthActivity"
+            android:exported="false"
+            android:label="FifthActivity"
+            android:theme="@style/Theme.TestSuite" />
+        <activity
             android:name=".FirstActivity"
             android:exported="true">
             <intent-filter>

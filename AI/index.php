@@ -1,17 +1,11 @@
 <?php
+$conn = new mysqli("sql6.freesqldatabase.com", "sql6695157", "Br984vLa1L", "sql6695157");
+$sql = "SELECT * FROM RollCall ORDER BY time;";
+$res = $conn->query($sql);
 
-$hostname = "localhost";
-$username = "root";
-$password = "";
-$dbname = "lab";
-
-$handle = mysqli_connect($hostname, $username, $password);
-mysqli_select_db($handle, $dbname);
-
-$records = mysqli_query($handle, "SELECT * FROM RollCall ORDER BY time;");
-while ($row = mysqli_fetch_assoc($records)) {
-	$result[] = $row
+while ($row = $res->fetch_assoc()) {
+	$result[] = $row;
 }
-print(json_encode($result))
-mysql_close($handle)
+echo json_encode($result);
+$conn->close();
 ?>

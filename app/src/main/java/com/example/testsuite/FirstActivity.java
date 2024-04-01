@@ -22,6 +22,11 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
 
+        btn0 = (Button) findViewById(R.id.btn0);
+        btn0.setOnClickListener(e -> {
+            Intent intent = new Intent(this, FifthActivity.class);
+            startActivity(intent);
+        });
         btn1 = (Button) findViewById(R.id.btn1);
         btn1.setOnClickListener(e -> {
             Intent intent = new Intent(this, SecondActivity.class);
