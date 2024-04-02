@@ -3,6 +3,7 @@ package com.example.testsuite;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -26,6 +27,18 @@ public class SecondActivity extends AppCompatActivity {
     Button btn0, btn1, btn2, btn3;
     Switch btnLight;
     ImageView imgLight;
+    ImageView mainImgColor;
+    ImageView redImgColor;
+    ImageView orangeImgColor;
+    ImageView yellowImgColor;
+    ImageView greenImgColor;
+    ImageView blueImgColor;
+    ImageView dark_blueImgColor;
+    ImageView purpleImgColor;
+    ImageView pinkImgColor;
+    ImageView brownImgColor;
+    ImageView bluepinkImgColor;
+    ImageView greyImgColor;
     TextView txtSpeed;
     Slider sliderFan;
     MQTTHelper mqttHelper;
@@ -64,6 +77,110 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+
+    // This section deal with color change
+
+        mainImgColor = (ImageView) findViewById(R.id.main_color);
+        redImgColor = (ImageView) findViewById(R.id.img_color0);
+        orangeImgColor = (ImageView) findViewById(R.id.img_color1);
+        yellowImgColor = (ImageView) findViewById(R.id.img_color2);
+        greenImgColor = (ImageView) findViewById(R.id.img_color3);
+        blueImgColor = (ImageView) findViewById(R.id.img_color4);
+        dark_blueImgColor = (ImageView) findViewById(R.id.img_color5);
+        purpleImgColor = (ImageView) findViewById(R.id.img_color6);
+        pinkImgColor = (ImageView) findViewById(R.id.img_color7);
+        brownImgColor = (ImageView) findViewById(R.id.img_color8);
+        bluepinkImgColor = (ImageView) findViewById(R.id.img_color9);
+        greyImgColor = (ImageView) findViewById(R.id.img_color10);
+
+        redImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.red);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#ff0000");
+            }
+        });
+
+        orangeImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.orange);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#ffa500");
+            }
+        });
+
+        yellowImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.yellow);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#ffff00");
+            }
+        });
+
+        greenImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.green);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#00ff00");
+            }
+        });
+
+        blueImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.blue);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#0000ff");
+            }
+        });
+
+        dark_blueImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.dark_blue);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#4b0082");
+            }
+        });
+
+        purpleImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.purple);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#800080");
+            }
+        });
+
+        pinkImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.pink);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#ff00ff");
+            }
+        });
+
+        brownImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.brown);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#c66300");
+            }
+        });
+
+        bluepinkImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.bluepink);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#0080ff");
+            }
+        });
+
+        greyImgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mainImgColor.setImageResource(R.mipmap.grey);
+                sendDataMQTT("csIs2G00d/feeds/V11", "#8080c0");
+            }
+        });
+    // end
 
         txtSpeed = (TextView) findViewById(R.id.txt_speed);
         sliderFan = (Slider) findViewById(R.id.slider_fan);
@@ -121,6 +238,41 @@ public class SecondActivity extends AppCompatActivity {
                 Log.d("Test",topic+ "***"+ message.toString());
                 if (topic.endsWith("V10")) {
                     btnLight.setChecked(message.toString().equals("1"));
+                }
+                else if (topic.endsWith("V11")) {
+                    if (message.toString().equals("#ff0000")) {
+                        mainImgColor.setImageResource(R.mipmap.red);
+                    }
+                    else if (message.toString().equals("#ffa500")) {
+                        mainImgColor.setImageResource(R.mipmap.orange);
+                    }
+                    else if (message.toString().equals("#ffff00")) {
+                        mainImgColor.setImageResource(R.mipmap.yellow);
+                    }
+                    else if (message.toString().equals("#00ff00")) {
+                        mainImgColor.setImageResource(R.mipmap.green);
+                    }
+                    else if (message.toString().equals("#0000ff")) {
+                        mainImgColor.setImageResource(R.mipmap.blue);
+                    }
+                    else if (message.toString().equals("#4b0082")) {
+                        mainImgColor.setImageResource(R.mipmap.dark_blue);
+                    }
+                    else if (message.toString().equals("#800080")) {
+                        mainImgColor.setImageResource(R.mipmap.purple);
+                    }
+                    else if (message.toString().equals("#ff00ff")) {
+                        mainImgColor.setImageResource(R.mipmap.pink);
+                    }
+                    else if (message.toString().equals("#c66300")) {
+                        mainImgColor.setImageResource(R.mipmap.brown);
+                    }
+                    else if (message.toString().equals("#0080ff")) {
+                        mainImgColor.setImageResource(R.mipmap.bluepink);
+                    }
+                    else if (message.toString().equals("#8080c0")) {
+                        mainImgColor.setImageResource(R.mipmap.grey);
+                    }
                 }
                 else if (topic.endsWith("V12")) {
                     sliderFan.setValue(Float.parseFloat(message.toString()));

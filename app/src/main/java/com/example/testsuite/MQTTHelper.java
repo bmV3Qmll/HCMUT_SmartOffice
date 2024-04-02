@@ -24,7 +24,7 @@ public class MQTTHelper {
 
     public final String[] arrayTopics = {
             username + "/feeds/V1", username + "/feeds/V2", username + "/feeds/V3",
-            username + "/feeds/V10", username + "/feeds/V12"
+            username + "/feeds/V10", username + "/feeds/V11", username + "/feeds/V12"
     };
 
     final String serverUri = "tcp://mqtt.ohstem.vn:1883";
