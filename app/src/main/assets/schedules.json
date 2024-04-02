@@ -3,5 +3,8 @@
   {"name": "Name A", "start": "13:00", "end": "15:00"},
   {"name": "Name B", "start": "8:00", "end": "10:00"},
   {"name": "Name B", "start": "14:00", "end": "16:00"},
-  {"name": "Name C", "start": "14:00", "end": "16:00"}
+  {"name": "Name C", "start": "14:00", "end": "16:00"},
+  {"name": "Name D", "start": "14:00", "end": "16:00"},
+  {"name": "Name E", "start": "14:00", "end": "16:00"},
+  {"name": "Name F", "start": "14:00", "end": "16:00"}
 ]

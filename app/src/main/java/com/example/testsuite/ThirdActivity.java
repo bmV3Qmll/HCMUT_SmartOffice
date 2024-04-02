@@ -48,21 +48,21 @@ public class ThirdActivity extends AppCompatActivity {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                Log.d("WebView", "Page loading started: " + url);
-            }
-
-            @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-                Log.d("WebView", "Page finished loading: " + url);
-            }
-
-            @Override
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                super.onReceivedError(view, request, error);
-                Log.e("WebView", "Error loading page: " + error.toString());
+                try {
+                    InputStream inputStream = getAssets().open("schedules.json");
+                    byte[] buffer = new byte[inputStream.available()];
+                    inputStream.read(buffer);
+                    inputStream.close();
+                    String json = new String(buffer, "UTF-8");
+                    json = json.replace("\n", "").replace("\r", "");
+                    webView.evaluateJavascript("javascript: " +
+                            "window.jsonData = " + json + "; " +
+                            "drawChart();", null);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
