@@ -1,7 +1,13 @@
 package com.example.testsuite;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
@@ -13,10 +19,9 @@ import android.util.JsonReader;
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
 import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.charts.Cartesian;
-import com.anychart.core.cartesian.series.RangeColumn;
-import com.anychart.data.Mapping;
-import com.anychart.data.Set;
+import android.os.Bundle;
+import android.webkit.WebView;
+import androidx.appcompat.app.AppCompatActivity;
 public class ThirdActivity extends AppCompatActivity {
     Button btn0, btn1, btn2, btn3;
     // for the gant chart
@@ -34,71 +39,35 @@ public class ThirdActivity extends AppCompatActivity {
         return hours * 60 + minutes;
     }
 
-    private List<Schedule> readSchedulesFromJson() {
-        List<Schedule> schedules = new ArrayList<>();
-
-        try {
-            InputStream is = getAssets().open("schedules.json");
-            JsonReader reader = new JsonReader(new InputStreamReader(is, "UTF-8"));
-
-            reader.beginArray();
-            while (reader.hasNext()) {
-                reader.beginObject();
-
-                String name = "";
-                String start = "";
-                String end = "";
-
-                while (reader.hasNext()) {
-                    String key = reader.nextName();
-
-                    if (key.equals("name")) {
-                        name = reader.nextString();
-                    } else if (key.equals("start")) {
-                        start = reader.nextString();
-                    } else if (key.equals("end")) {
-                        end = reader.nextString();
-                    } else {
-                        reader.skipValue();
-                    }
-                }
-
-                schedules.add(new Schedule(name, start, end));
-
-                reader.endObject();
-            }
-            reader.endArray();
-
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return schedules;
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_three);
-        AnyChartView anyChartView = findViewById(R.id.any_chart_view);
+        WebView webView = findViewById(R.id.webview);
+        webView.getSettings().setJavaScriptEnabled(true);
 
-        Cartesian cartesian = AnyChart.cartesian();
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                Log.d("WebView", "Page loading started: " + url);
+            }
 
-        List<DataEntry> data = new ArrayList<>();
-        for (Schedule schedule : readSchedulesFromJson()) {
-            String name = schedule.getName();
-            Number start = convertTimeToMinutes(schedule.getStart());
-            Number end = convertTimeToMinutes(schedule.getEnd());
-            data.add(new CustomDataEntry(name, start, end));
-        }
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                Log.d("WebView", "Page finished loading: " + url);
+            }
 
-        Set set = Set.instantiate();
-        set.data(data);
-        Mapping seriesData = set.mapAs("{ x: 'x', high: 'high', low: 'low' }");
+            @Override
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                super.onReceivedError(view, request, error);
+                Log.e("WebView", "Error loading page: " + error.toString());
+            }
+        });
 
-        RangeColumn column = cartesian.rangeColumn(seriesData);
+        webView.loadUrl("file:///android_asset/gantt_chart.html");
 
-        anyChartView.setChart(cartesian);
 
         // Button and click listeners
         btn0 = (Button) findViewById(R.id.btn0);

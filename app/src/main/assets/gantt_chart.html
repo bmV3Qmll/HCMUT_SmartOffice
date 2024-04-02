@@ -1,0 +1,47 @@
+<head>
+    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-core.min.js" type="text/javascript"></script>
+    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-gantt.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    anychart.onDocumentReady(function () {
+      // Your provided JSON data
+      var jsonData = [
+        {"name": "Name A", "start": "7:00", "end": "9:00"},
+        {"name": "Name A", "start": "13:00", "end": "15:00"},
+        {"name": "Name B", "start": "8:00", "end": "10:00"},
+        {"name": "Name B", "start": "14:00", "end": "16:00"},
+        {"name": "Name C", "start": "14:00", "end": "16:00"}
+      ];
+
+      // Transforming the jsonData to match the required structure for Gantt chart
+      var transformedData = [];
+      var tempData = {};
+
+      // Grouping periods by name
+      jsonData.forEach(function(item) {
+        if (!tempData[item.name]) {
+          tempData[item.name] = {
+            id: transformedData.length + 1,
+            name: item.name,
+            periods: []
+          };
+          transformedData.push(tempData[item.name]);
+        }
+        tempData[item.name].periods.push({
+          id: tempData[item.name].id + "_" + tempData[item.name].periods.length,
+          start: "2018-01-01 " + item.start,
+          end: "2018-01-01 " + item.end
+        });
+      });
+
+      var treeData = anychart.data.tree(transformedData, "as-table");
+      var chart = anychart.ganttResource();
+      chart.data(treeData);
+      chart.container("container");
+      chart.draw();
+      chart.fitAll();
+    });
+</script>
+</body>
