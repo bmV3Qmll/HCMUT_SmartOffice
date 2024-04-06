@@ -44,8 +44,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
-        
+        android:layout_weight="1">
+
         <TextView
             android:id="@+id/txt_temp"
             android:layout_width="wrap_content"
@@ -61,6 +61,18 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChartTemp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/txt_humi"
@@ -78,6 +90,18 @@
         android:layout_height="0dp"
         android:layout_weight="2">
 
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChartHumi"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
         <TextView
             android:id="@+id/txt_illu"
             android:layout_width="wrap_content"
@@ -92,7 +116,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="2">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChartIllu"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0">
     </LinearLayout>
 
     <LinearLayout
