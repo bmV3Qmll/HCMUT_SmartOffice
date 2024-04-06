@@ -70,10 +70,10 @@ public class SecondActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     imgLight.setImageResource(R.mipmap.bulb_on);
-                    sendDataMQTT("csIs2G00d/feeds/V10", "1");
+                    sendDataMQTT("YoloHome2907/feeds/V10", "1");
                 } else {
                     imgLight.setImageResource(R.mipmap.bulb_off);
-                    sendDataMQTT("csIs2G00d/feeds/V10", "0");
+                    sendDataMQTT("YoloHome2907/feeds/V10", "0");
                 }
             }
         });
@@ -97,7 +97,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.red);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#ff0000");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#ff0000");
             }
         });
 
@@ -105,7 +105,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.orange);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#ffa500");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#ffa500");
             }
         });
 
@@ -113,7 +113,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.yellow);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#ffff00");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#ffff00");
             }
         });
 
@@ -121,7 +121,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.green);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#00ff00");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#00ff00");
             }
         });
 
@@ -129,7 +129,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.blue);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#0000ff");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#0000ff");
             }
         });
 
@@ -137,7 +137,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.dark_blue);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#4b0082");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#4b0082");
             }
         });
 
@@ -145,7 +145,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.purple);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#800080");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#800080");
             }
         });
 
@@ -153,7 +153,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.pink);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#ff00ff");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#ff00ff");
             }
         });
 
@@ -161,7 +161,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.brown);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#c66300");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#c66300");
             }
         });
 
@@ -169,7 +169,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.bluepink);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#0080ff");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#0080ff");
             }
         });
 
@@ -177,7 +177,7 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mainImgColor.setImageResource(R.mipmap.grey);
-                sendDataMQTT("csIs2G00d/feeds/V11", "#8080c0");
+                sendDataMQTT("YoloHome2907/feeds/V11", "#8080c0");
             }
         });
     // end
@@ -199,7 +199,7 @@ public class SecondActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(@NonNull Slider slider) {
-                sendDataMQTT("csIs2G00d/feeds/V12", Float.toString(slider.getValue()));
+                sendDataMQTT("YoloHome2907/feeds/V12", Integer.toString(Math.round(slider.getValue())));
             }
         });
         startMQTT();
