@@ -4,8 +4,8 @@
     android:id="@+id/activity_four"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FourthActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".FourthActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:text="BKU Smart Office"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"/>
         <ImageView
@@ -35,29 +35,171 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Status"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center">
         </TextView>
     </LinearLayout>
 
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:context=".FourthActivity">-->
+
+        <!--        <TableLayout-->
+
+        <!--            android:id="@+id/tableLayout"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:stretchColumns="*">-->
+
+        <!--            <TableRow-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_margin="40dp"-->
+        <!--                >-->
+        <!--                <TextView-->
+        <!--                    android:layout_width="0dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    tools:context = "Name"-->
+        <!--                    />-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/text_name"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:textSize="16sp"/>-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/text_start"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:textSize="16sp"-->
+        <!--                    android:layout_marginStart="16dp"/>-->
+
+        <!--                <TextView-->
+        <!--                    android:id="@+id/text_end"-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:textSize="16sp"-->
+        <!--                    android:layout_marginStart="16dp"/>-->
+
+        <!--            </TableRow>-->
+
+        <!--        </TableLayout>-->
+
+<!--    </RelativeLayout>-->
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+
+        <!--        Table Heading-->
+        <TableRow>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Name"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Active Hours"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="On time"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="Absent"
+                android:textSize="14sp" />
+        </TableRow>
+
+<!--        <TableRow>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_name"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="4"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="20sp"-->
+<!--                android:textSize="14sp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/text_start"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="4"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="20sp"-->
+<!--                android:textSize="14sp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/checkmark_icon"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_checkmark"-->
+<!--                android:layout_weight="4"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:visibility="gone"-->
+<!--                android:padding="20sp"-->
+<!--                android:textSize="14sp" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/cross_icon"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_cross"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_weight="4"-->
+<!--                android:gravity="center_horizontal"-->
+<!--                android:padding="10sp"-->
+<!--                android:textSize="14sp"-->
+<!--                />-->
+
+<!--        </TableRow>-->
+    </TableLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="1">
 
         <TextView
             android:id="@+id/txt_mysql"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
+
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:baselineAligned="true"
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -69,14 +211,13 @@
                 android:id="@+id/btn0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/chart_line"/>
+                android:src="@drawable/chart_line" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -90,13 +231,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/toggle_switch"/>
+                android:src="@drawable/toggle_switch" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -110,13 +251,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/timeline"/>
+                android:src="@drawable/timeline" />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -130,16 +273,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
-                android:background="@android:color/transparent"/>
+                android:background="@android:color/transparent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:src="@drawable/list_solid"/>
-        </RelativeLayout>
+                android:src="@drawable/list_solid" />
 
+
+        </RelativeLayout>
 
     </LinearLayout>
 
+
 </LinearLayout>
+

@@ -19,7 +19,7 @@ public class MQTTHelper {
     public MqttAndroidClient mqttAndroidClient;
 
     final String clientId = "12345678";
-    final String username = "YoloHome2907";
+    final String username = "YoloHome2908";
     final String password = "";
 
     public final String[] arrayTopics = {

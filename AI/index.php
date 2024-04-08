@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("sql6.freesqldatabase.com", "sql6695157", "Br984vLa1L", "sql6695157");
+$conn = new mysqli("localhost", "root", "", "project");
 $sql = "SELECT * FROM RollCall ORDER BY time;";
 $res = $conn->query($sql);
 

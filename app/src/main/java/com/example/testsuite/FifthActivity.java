@@ -45,7 +45,7 @@ public class FifthActivity extends AppCompatActivity {
     ArrayList<Entry> outEntries = new ArrayList<>();
     String[] labels = {"A", "B", "C", "D"};
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    String url = "http://smartoffice.wuaze.com/";
+    String url = "http://172.20.10.3/CO3107";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +86,9 @@ public class FifthActivity extends AppCompatActivity {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Cookie", "__test=dbc99bf8163359a3f3053fdb9ae0a690");
-                headers.put("Upgrade-Insecure-Requests", "1");
-                headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0");
+                // headers.put("Cookie", "__test=dbc99bf8163359a3f3053fdb9ae0a690");
+                //headers.put("Upgrade-Insecure-Requests", "1");
+                //headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0");
                 return headers;
             }
         };

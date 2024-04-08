@@ -4,10 +4,10 @@ import mysql.connector
 from datetime import datetime
 
 mydb = mysql.connector.connect(
-    host="sql6.freesqldatabase.com",
-    user="sql6695157",
-    password="Br984vLa1L",
-    database="sql6695157"
+    host="localhost",
+    user="root",
+    password="",
+    database="project"
 )
 
 mycursor = mydb.cursor()

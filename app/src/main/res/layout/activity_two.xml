@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:text="BKU Smart Office"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center"/>
         <ImageView
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Terminal"
-            android:textSize="40sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:gravity="center">
         </TextView>
@@ -44,7 +44,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="5"
         android:orientation="horizontal">
 
         <RelativeLayout
@@ -62,7 +62,7 @@
                 android:scaleY="2"
                 android:checked="false"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="80dp"/>
 
             <ImageView
                 android:id="@+id/img_light"
@@ -83,7 +83,7 @@
                 android:layout_width="50dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="80dp"
+                android:layout_marginTop="120dp"
                 android:src="@mipmap/red" />
 
             <ImageView
@@ -91,7 +91,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:clickable="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:src="@mipmap/red" />
 
             <ImageView
@@ -99,7 +99,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:clickable="true"
                 android:src="@mipmap/orange" />
 
@@ -108,7 +108,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:clickable="true"
                 android:src="@mipmap/yellow" />
 
@@ -117,7 +117,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="90dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:clickable="true"
                 android:src="@mipmap/green" />
 
@@ -126,7 +126,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="120dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:clickable="true"
                 android:src="@mipmap/blue" />
 
@@ -135,7 +135,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="150dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:clickable="true"
                 android:src="@mipmap/dark_blue" />
 
@@ -144,7 +144,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="0dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="110dp"
                 android:clickable="true"
                 android:src="@mipmap/purple" />
 
@@ -153,7 +153,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="110dp"
                 android:clickable="true"
                 android:src="@mipmap/pink" />
 
@@ -162,7 +162,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="60dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="110dp"
                 android:clickable="true"
                 android:src="@mipmap/brown" />
 
@@ -171,7 +171,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="90dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="110dp"
                 android:clickable="true"
                 android:src="@mipmap/bluepink" />
 
@@ -180,7 +180,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="120dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="110dp"
                 android:clickable="true"
                 android:src="@mipmap/grey" />
         </RelativeLayout>

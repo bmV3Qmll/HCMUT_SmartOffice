@@ -33,7 +33,7 @@ import java.nio.charset.Charset;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 public class FirstActivity extends AppCompatActivity {
-    Button btn0, btn1, btn2, btn3;
+    Button btn1, btn2, btn3;
     TextView txtTemp, txtHumi, txtIllu;
     LineChart mChartTemp, mChartHumi, mChartIllu;
 
@@ -44,11 +44,6 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one);
 
-        btn0 = (Button) findViewById(R.id.btn0);
-        btn0.setOnClickListener(e -> {
-            Intent intent = new Intent(this, FifthActivity.class);
-            startActivity(intent);
-        });
         btn1 = (Button) findViewById(R.id.btn1);
         btn1.setOnClickListener(e -> {
             Intent intent = new Intent(this, SecondActivity.class);
