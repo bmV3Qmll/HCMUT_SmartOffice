@@ -38,7 +38,8 @@ public class FourthActivity extends AppCompatActivity {
     TextView txtMysql;
     RequestQueue requestQueue;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    String url = "http://192.168.1.2/CO3107";
+    String url = "http://192.168.30.189/CO3107";
+    TableLayout tableLayout;
     TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
             TableRow.LayoutParams.MATCH_PARENT,
             TableRow.LayoutParams.WRAP_CONTENT,
@@ -66,7 +67,6 @@ public class FourthActivity extends AppCompatActivity {
     }
 
     public void Create_Row(){
-        TableLayout tableLayout = findViewById(R.id.tableLayout);
         for (int i = 0; i < N; i++) {
             TableRow row = new TableRow(this);
 
@@ -115,6 +115,7 @@ public class FourthActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_four);
+        tableLayout = findViewById(R.id.tableLayout);
         btn0 = (Button) findViewById(R.id.btn0);
         btn0.setOnClickListener(e -> {
             Intent intent = new Intent(this, FirstActivity.class);

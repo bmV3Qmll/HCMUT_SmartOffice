@@ -1,6 +1,6 @@
-0 Nam
-1 Thanh
+0 Thanh
+1 Nam
 2 Tuan
-3 Kiet
-4 Hieu
+3 Hieu
+4 Kiet
 5 Background

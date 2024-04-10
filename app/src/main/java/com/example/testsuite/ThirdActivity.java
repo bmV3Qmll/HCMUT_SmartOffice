@@ -67,7 +67,7 @@ public class ThirdActivity extends AppCompatActivity {
     ArrayList<Entry> outEntries = new ArrayList<>();
     String[] labels = {"Hieu", "Kiet", "Nam", "Thanh", "Tuan"};
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    String url = "http://192.168.1.2/CO3107";
+    String url = "http://192.168.30.189/CO3107";
     /*
     // for the gant chart
     private class CustomDataEntry extends DataEntry {
